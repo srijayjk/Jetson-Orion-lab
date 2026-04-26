@@ -1,0 +1,2227 @@
+[0;32m[video]  created imageLoader from file:///workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/
+[0m------------------------------------------------
+imageLoader video options:
+------------------------------------------------
+  -- URI: file:///workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/
+     - protocol:  file
+     - location:  /workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/
+  -- deviceType: file
+  -- ioType:     input
+  -- codec:      unknown
+  -- codecType:  v4l2
+  -- frameRate:  0
+  -- numBuffers: 4
+  -- zeroCopy:   true
+  -- flipMethod: none
+  -- loop:       0
+------------------------------------------------
+[0;32m[video]  created imageWriter from file:///workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/
+[0m------------------------------------------------
+imageWriter video options:
+------------------------------------------------
+  -- URI: file:///workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/
+     - protocol:  file
+     - location:  /workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/
+  -- deviceType: file
+  -- ioType:     output
+  -- codec:      unknown
+  -- codecType:  v4l2
+  -- frameRate:  0
+  -- bitRate:    0
+  -- numBuffers: 4
+  -- zeroCopy:   true
+------------------------------------------------
+
+detectNet -- loading detection network model from:
+          -- model        networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+          -- input_blob   'Input'
+          -- output_blob  'NMS'
+          -- output_count 'NMS_1'
+          -- class_labels networks/SSD-Mobilenet-v2/ssd_coco_labels.txt
+          -- threshold    0.500000
+          -- batch_size   1
+
+[TRT]    TensorRT version 8.6.2
+[TRT]    loading NVIDIA plugins...
+[TRT]    Registered plugin creator - ::BatchedNMSDynamic_TRT version 1
+[TRT]    Registered plugin creator - ::BatchedNMS_TRT version 1
+[TRT]    Registered plugin creator - ::BatchTilePlugin_TRT version 1
+[TRT]    Registered plugin creator - ::Clip_TRT version 1
+[TRT]    Registered plugin creator - ::CoordConvAC version 1
+[TRT]    Registered plugin creator - ::CropAndResizeDynamic version 1
+[TRT]    Registered plugin creator - ::CropAndResize version 1
+[TRT]    Registered plugin creator - ::DecodeBbox3DPlugin version 1
+[TRT]    Registered plugin creator - ::DetectionLayer_TRT version 1
+[TRT]    Registered plugin creator - ::EfficientNMS_Explicit_TF_TRT version 1
+[TRT]    Registered plugin creator - ::EfficientNMS_Implicit_TF_TRT version 1
+[TRT]    Registered plugin creator - ::EfficientNMS_ONNX_TRT version 1
+[TRT]    Registered plugin creator - ::EfficientNMS_TRT version 1
+[0;31m[TRT]    Could not register plugin creator -  ::FlattenConcat_TRT version 1
+[0m[TRT]    Registered plugin creator - ::GenerateDetection_TRT version 1
+[TRT]    Registered plugin creator - ::GridAnchor_TRT version 1
+[TRT]    Registered plugin creator - ::GridAnchorRect_TRT version 1
+[TRT]    Registered plugin creator - ::InstanceNormalization_TRT version 1
+[TRT]    Registered plugin creator - ::InstanceNormalization_TRT version 2
+[TRT]    Registered plugin creator - ::LReLU_TRT version 1
+[TRT]    Registered plugin creator - ::ModulatedDeformConv2d version 1
+[TRT]    Registered plugin creator - ::MultilevelCropAndResize_TRT version 1
+[TRT]    Registered plugin creator - ::MultilevelProposeROI_TRT version 1
+[TRT]    Registered plugin creator - ::MultiscaleDeformableAttnPlugin_TRT version 1
+[TRT]    Registered plugin creator - ::NMSDynamic_TRT version 1
+[TRT]    Registered plugin creator - ::NMS_TRT version 1
+[TRT]    Registered plugin creator - ::Normalize_TRT version 1
+[TRT]    Registered plugin creator - ::PillarScatterPlugin version 1
+[TRT]    Registered plugin creator - ::PriorBox_TRT version 1
+[TRT]    Registered plugin creator - ::ProposalDynamic version 1
+[TRT]    Registered plugin creator - ::ProposalLayer_TRT version 1
+[TRT]    Registered plugin creator - ::Proposal version 1
+[TRT]    Registered plugin creator - ::PyramidROIAlign_TRT version 1
+[TRT]    Registered plugin creator - ::Region_TRT version 1
+[TRT]    Registered plugin creator - ::Reorg_TRT version 1
+[TRT]    Registered plugin creator - ::ResizeNearest_TRT version 1
+[TRT]    Registered plugin creator - ::ROIAlign_TRT version 1
+[TRT]    Registered plugin creator - ::RPROI_TRT version 1
+[TRT]    Registered plugin creator - ::ScatterND version 1
+[TRT]    Registered plugin creator - ::SpecialSlice_TRT version 1
+[TRT]    Registered plugin creator - ::Split version 1
+[TRT]    Registered plugin creator - ::VoxelGeneratorPlugin version 1
+[TRT]    completed loading NVIDIA plugins.
+[TRT]    detected model format - UFF  (extension '.uff')
+[TRT]    desired precision specified for GPU: FASTEST
+[0;33m[TRT]    requested fasted precision for device GPU without providing valid calibrator, disabling INT8
+[0m[TRT]    [MemUsageChange] Init CUDA: CPU +12, GPU +0, now: CPU 33, GPU 3131 (MiB)
+[TRT]    Trying to load shared library libnvinfer_builder_resource.so.8.6.2
+[TRT]    Loaded shared library libnvinfer_builder_resource.so.8.6.2
+[TRT]    [MemUsageChange] Init builder kernel library: CPU +1154, GPU +1116, now: CPU 1223, GPU 4286 (MiB)
+[TRT]    CUDA lazy loading is enabled.
+[TRT]    native precisions detected for GPU:  FP32, FP16, INT8
+[TRT]    selecting fastest native precision for GPU:  FP16
+[TRT]    found engine cache file /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff.1.1.8602.GPU.FP16.engine
+[TRT]    found model checksum /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff.sha256sum
+[TRT]    echo "$(cat /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff.sha256sum) /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff" | sha256sum --check --status
+[TRT]    model matched checksum /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff.sha256sum
+[TRT]    loading network plan from engine cache... /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff.1.1.8602.GPU.FP16.engine
+[0;32m[TRT]    device GPU, loaded /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[0m[TRT]    Loaded engine size: 35 MiB
+[TRT]    Local registry did not find FlattenConcat_TRT creator. Will try parent registry if enabled.
+[TRT]    Global registry found FlattenConcat_TRT creator.
+[TRT]    Local registry did not find FlattenConcat_TRT creator. Will try parent registry if enabled.
+[TRT]    Global registry found FlattenConcat_TRT creator.
+[TRT]    Local registry did not find GridAnchor_TRT creator. Will try parent registry if enabled.
+[TRT]    Global registry found GridAnchor_TRT creator.
+[TRT]    Local registry did not find NMS_TRT creator. Will try parent registry if enabled.
+[TRT]    Global registry found NMS_TRT creator.
+[TRT]    Trying to load shared library libcublas.so.12
+[TRT]    Loaded shared library libcublas.so.12
+[TRT]    Using cublas as plugin tactic source
+[TRT]    [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +4, GPU +0, now: CPU 117, GPU 4288 (MiB)
+[TRT]    Trying to load shared library libcudnn.so.8
+[TRT]    Loaded shared library libcudnn.so.8
+[TRT]    Using cuDNN as plugin tactic source
+[TRT]    [MemUsageChange] Init cuDNN: CPU +2, GPU +0, now: CPU 119, GPU 4288 (MiB)
+[TRT]    Deserialization required 53988 microseconds.
+[TRT]    [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +33, now: CPU 0, GPU 33 (MiB)
+[TRT]    Trying to load shared library libcublas.so.12
+[TRT]    Loaded shared library libcublas.so.12
+[TRT]    Using cublas as plugin tactic source
+[TRT]    [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 119, GPU 4289 (MiB)
+[TRT]    Trying to load shared library libcudnn.so.8
+[TRT]    Loaded shared library libcudnn.so.8
+[TRT]    Using cuDNN as plugin tactic source
+[TRT]    [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 120, GPU 4289 (MiB)
+[TRT]    Total per-runner device persistent memory is 6144
+[TRT]    Total per-runner host persistent memory is 360640
+[TRT]    Allocated activation device memory of size 7005696
+[TRT]    [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +6, now: CPU 0, GPU 39 (MiB)
+[TRT]    CUDA lazy loading is enabled.
+[TRT]    
+[TRT]    CUDA engine context initialized on device GPU:
+[TRT]       -- layers       108
+[TRT]       -- maxBatchSize 1
+[TRT]       -- deviceMemory 7005696
+[TRT]       -- bindings     3
+[TRT]       binding 0
+                -- index   0
+                -- name    'Input'
+                -- type    FP32
+                -- in/out  INPUT
+                -- # dims  3
+                -- dim #0  3
+                -- dim #1  300
+                -- dim #2  300
+[TRT]       binding 1
+                -- index   1
+                -- name    'NMS'
+                -- type    FP32
+                -- in/out  OUTPUT
+                -- # dims  3
+                -- dim #0  1
+                -- dim #1  100
+                -- dim #2  7
+[TRT]       binding 2
+                -- index   2
+                -- name    'NMS_1'
+                -- type    FP32
+                -- in/out  OUTPUT
+                -- # dims  3
+                -- dim #0  1
+                -- dim #1  1
+                -- dim #2  1
+[TRT]    
+[TRT]    binding to input 0 Input  binding index:  0
+[TRT]    binding to input 0 Input  dims (b=1 c=3 h=300 w=300) size=1080000
+[TRT]    binding to output 0 NMS  binding index:  1
+[TRT]    binding to output 0 NMS  dims (b=1 c=1 h=100 w=7) size=2800
+[TRT]    binding to output 1 NMS_1  binding index:  2
+[TRT]    binding to output 1 NMS_1  dims (b=1 c=1 h=1 w=1) size=4
+[TRT]    
+[0;32m[TRT]    device GPU, /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff initialized.
+[0m[TRT]    W = 7  H = 100  C = 1
+[TRT]    detectNet -- maximum bounding boxes:   100
+[TRT]    loaded 91 class labels
+[TRT]    detectNet -- number of object classes:  91
+[TRT]    loaded 0 class colors
+[0;33m[TRT]    didn't load expected number of class colors  (0 of 91)
+[0m[0;33m[TRT]    filling in remaining 91 class colors with default colors
+[0m[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/airplane_0.jpg'  (500x375, 3 channels)
+4 objects detected
+
+detected obj 0  class #5 (airplane)  confidence=0.923828
+bounding box 0  (2.32, 61.16)  (499.00, 274.11)  w=496.68  h=212.95
+
+detected obj 1  class #1 (person)  confidence=0.876465
+bounding box 1  (293.21, 158.84)  (414.79, 369.14)  w=121.58  h=210.30
+
+detected obj 2  class #1 (person)  confidence=0.911133
+bounding box 2  (116.39, 177.43)  (233.64, 371.89)  w=117.25  h=194.46
+
+detected obj 3  class #1 (person)  confidence=0.870605
+bounding box 3  (1.13, 171.66)  (112.30, 372.44)  w=111.18  h=200.78
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/0.jpg'  (500x375, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.71237ms  CUDA   0.82397ms
+[TRT]    Network       CPU 186.73264ms  CUDA 186.62268ms
+[TRT]    Post-Process  CPU   0.07444ms  CUDA   0.07427ms
+[TRT]    Visualize     CPU   4.27385ms  CUDA   4.30669ms
+[TRT]    Total         CPU 191.79329ms  CUDA 191.82761ms
+[TRT]    ------------------------------------------------
+
+[0;33m[TRT]    note -- when processing a single image, run 'sudo jetson_clocks' before
+                to disable DVFS for more accurate profiling/timing measurements
+
+[0m[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/airplane_1.jpg'  (427x640, 3 channels)
+2 objects detected
+
+detected obj 0  class #5 (airplane)  confidence=0.552246
+bounding box 0  (150.64, 14.73)  (225.18, 85.94)  w=74.54  h=71.21
+
+detected obj 1  class #5 (airplane)  confidence=0.906250
+bounding box 1  (284.18, 137.81)  (332.55, 181.72)  w=48.37  h=43.91
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/1.jpg'  (427x640, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04490ms  CUDA   0.10950ms
+[TRT]    Network       CPU  10.86576ms  CUDA  10.20195ms
+[TRT]    Post-Process  CPU   0.01805ms  CUDA   0.01866ms
+[TRT]    Visualize     CPU   0.06327ms  CUDA   0.08550ms
+[TRT]    Total         CPU  10.99197ms  CUDA  10.41562ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/banana_0.jpg'  (920x920, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/2.jpg'  (920x920, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05584ms  CUDA   0.12810ms
+[TRT]    Network       CPU  10.90905ms  CUDA  10.24816ms
+[TRT]    Post-Process  CPU   0.00970ms  CUDA   0.01021ms
+[TRT]    Visualize     CPU   0.06327ms  CUDA   0.08550ms
+[TRT]    Total         CPU  11.03786ms  CUDA  10.47197ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/bird_0.jpg'  (368x500, 3 channels)
+1 objects detected
+
+detected obj 0  class #16 (bird)  confidence=0.996094
+bounding box 0  (68.64, 236.57)  (249.77, 478.27)  w=181.12  h=241.70
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/3.jpg'  (368x500, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04461ms  CUDA   0.11690ms
+[TRT]    Network       CPU  11.07450ms  CUDA  10.39651ms
+[TRT]    Post-Process  CPU   0.01238ms  CUDA   0.01341ms
+[TRT]    Visualize     CPU   0.05674ms  CUDA   0.09949ms
+[TRT]    Total         CPU  11.18823ms  CUDA  10.62630ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/bird_1.jpg'  (500x500, 3 channels)
+1 objects detected
+
+detected obj 0  class #16 (bird)  confidence=0.986328
+bounding box 0  (130.62, 111.57)  (337.40, 426.51)  w=206.79  h=314.94
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/4.jpg'  (500x500, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04029ms  CUDA   0.11558ms
+[TRT]    Network       CPU  11.21354ms  CUDA  10.55430ms
+[TRT]    Post-Process  CPU   0.01264ms  CUDA   0.01322ms
+[TRT]    Visualize     CPU   0.05283ms  CUDA   0.12291ms
+[TRT]    Total         CPU  11.31931ms  CUDA  10.80602ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/bird_2.jpg'  (500x333, 3 channels)
+1 objects detected
+
+detected obj 0  class #16 (bird)  confidence=0.991699
+bounding box 0  (58.04, 15.20)  (219.73, 222.11)  w=161.68  h=206.91
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/5.jpg'  (500x333, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.03078ms  CUDA   0.11008ms
+[TRT]    Network       CPU  11.06109ms  CUDA  10.38848ms
+[TRT]    Post-Process  CPU   0.01181ms  CUDA   0.01306ms
+[TRT]    Visualize     CPU   0.04070ms  CUDA   0.08448ms
+[TRT]    Total         CPU  11.14439ms  CUDA  10.59610ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/black_bear.jpg'  (800x656, 3 channels)
+1 objects detected
+
+detected obj 0  class #23 (bear)  confidence=0.997559
+bounding box 0  (281.05, 245.68)  (757.03, 655.00)  w=475.98  h=409.32
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/6.jpg'  (800x656, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04493ms  CUDA   0.12166ms
+[TRT]    Network       CPU  11.11357ms  CUDA  10.42944ms
+[TRT]    Post-Process  CPU   0.01210ms  CUDA   0.01274ms
+[TRT]    Visualize     CPU   0.04890ms  CUDA   0.41014ms
+[TRT]    Total         CPU  11.21950ms  CUDA  10.97398ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/bottle_0.jpg'  (481x640, 3 channels)
+2 objects detected
+
+detected obj 0  class #17 (cat)  confidence=0.986328
+bounding box 0  (93.59, 35.78)  (480.53, 470.62)  w=386.94  h=434.84
+
+detected obj 1  class #44 (bottle)  confidence=0.993164
+bounding box 1  (20.96, 231.72)  (148.20, 583.75)  w=127.24  h=352.03
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/7.jpg'  (481x640, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05367ms  CUDA   0.11082ms
+[TRT]    Network       CPU  11.24190ms  CUDA  10.58822ms
+[TRT]    Post-Process  CPU   0.01843ms  CUDA   0.01914ms
+[TRT]    Visualize     CPU   0.07674ms  CUDA   0.32218ms
+[TRT]    Total         CPU  11.39073ms  CUDA  11.04035ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/brown_bear.jpg'  (855x683, 3 channels)
+1 objects detected
+
+detected obj 0  class #23 (bear)  confidence=0.996094
+bounding box 0  (68.88, 5.50)  (780.27, 653.65)  w=711.39  h=648.15
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/8.jpg'  (855x683, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05571ms  CUDA   0.12403ms
+[TRT]    Network       CPU  11.02660ms  CUDA  10.36554ms
+[TRT]    Post-Process  CPU   0.01306ms  CUDA   0.01446ms
+[TRT]    Visualize     CPU   0.06778ms  CUDA   0.86499ms
+[TRT]    Total         CPU  11.16314ms  CUDA  11.36902ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/cat_0.jpg'  (481x640, 3 channels)
+2 objects detected
+
+detected obj 0  class #17 (cat)  confidence=0.986328
+bounding box 0  (93.59, 35.78)  (480.53, 470.62)  w=386.94  h=434.84
+
+detected obj 1  class #44 (bottle)  confidence=0.993164
+bounding box 1  (20.96, 231.72)  (148.20, 583.75)  w=127.24  h=352.03
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/9.jpg'  (481x640, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05181ms  CUDA   0.11808ms
+[TRT]    Network       CPU  11.28910ms  CUDA  10.61341ms
+[TRT]    Post-Process  CPU   0.01776ms  CUDA   0.01869ms
+[TRT]    Visualize     CPU   0.07901ms  CUDA   0.31142ms
+[TRT]    Total         CPU  11.43768ms  CUDA  11.06160ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/cat_1.jpg'  (350x441, 3 channels)
+1 objects detected
+
+detected obj 0  class #17 (cat)  confidence=0.991211
+bounding box 0  (69.47, 22.07)  (338.38, 414.30)  w=268.91  h=392.23
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/10.jpg'  (350x441, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05699ms  CUDA   0.11120ms
+[TRT]    Network       CPU  11.11725ms  CUDA  10.46042ms
+[TRT]    Post-Process  CPU   0.01254ms  CUDA   0.01357ms
+[TRT]    Visualize     CPU   0.05680ms  CUDA   0.13462ms
+[TRT]    Total         CPU  11.24359ms  CUDA  10.71981ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/cat_2.jpg'  (500x356, 3 channels)
+2 objects detected
+
+detected obj 0  class #65 (bed)  confidence=0.504395
+bounding box 0  (0.00, 15.56)  (499.00, 349.74)  w=499.00  h=334.18
+
+detected obj 1  class #17 (cat)  confidence=0.967773
+bounding box 1  (121.70, 0.00)  (455.57, 343.48)  w=333.86  h=343.48
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/11.jpg'  (500x356, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.03171ms  CUDA   0.11453ms
+[TRT]    Network       CPU  11.25806ms  CUDA  10.58278ms
+[TRT]    Post-Process  CPU   0.01747ms  CUDA   0.01830ms
+[TRT]    Visualize     CPU   0.06211ms  CUDA   0.41120ms
+[TRT]    Total         CPU  11.36936ms  CUDA  11.12681ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/cat_3.jpg'  (500x375, 3 channels)
+1 objects detected
+
+detected obj 0  class #20 (sheep)  confidence=0.562012
+bounding box 0  (192.02, 0.00)  (497.07, 320.07)  w=305.05  h=320.07
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/12.jpg'  (500x375, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04349ms  CUDA   0.11434ms
+[TRT]    Network       CPU  11.07632ms  CUDA  10.39670ms
+[TRT]    Post-Process  CPU   0.01341ms  CUDA   0.01469ms
+[TRT]    Visualize     CPU   0.05971ms  CUDA   0.17091ms
+[TRT]    Total         CPU  11.19294ms  CUDA  10.69664ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/city_0.jpg'  (1024x512, 3 channels)
+6 objects detected
+
+detected obj 0  class #3 (car)  confidence=0.512695
+bounding box 0  (410.25, 224.00)  (480.25, 266.50)  w=70.00  h=42.50
+
+detected obj 1  class #3 (car)  confidence=0.662598
+bounding box 1  (428.50, 214.75)  (483.00, 258.75)  w=54.50  h=44.00
+
+detected obj 2  class #3 (car)  confidence=0.901367
+bounding box 2  (550.50, 216.62)  (597.50, 247.38)  w=47.00  h=30.75
+
+detected obj 3  class #3 (car)  confidence=0.667969
+bounding box 3  (374.75, 218.12)  (417.75, 250.38)  w=43.00  h=32.25
+
+detected obj 4  class #3 (car)  confidence=0.584961
+bounding box 4  (356.00, 223.00)  (385.50, 246.25)  w=29.50  h=23.25
+
+detected obj 5  class #3 (car)  confidence=0.863281
+bounding box 5  (490.75, 217.00)  (517.00, 236.50)  w=26.25  h=19.50
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/13.jpg'  (1024x512, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05859ms  CUDA   0.12630ms
+[TRT]    Network       CPU  11.32888ms  CUDA  10.66051ms
+[TRT]    Post-Process  CPU   0.02163ms  CUDA   0.02262ms
+[TRT]    Visualize     CPU   0.12490ms  CUDA   0.19718ms
+[TRT]    Total         CPU  11.53400ms  CUDA  11.00662ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/city_1.jpg'  (1024x512, 3 channels)
+9 objects detected
+
+detected obj 0  class #3 (car)  confidence=0.670410
+bounding box 0  (203.00, 154.25)  (371.00, 298.75)  w=168.00  h=144.50
+
+detected obj 1  class #1 (person)  confidence=0.507324
+bounding box 1  (918.00, 151.12)  (987.00, 338.00)  w=69.00  h=186.88
+
+detected obj 2  class #1 (person)  confidence=0.812988
+bounding box 2  (820.00, 150.00)  (877.00, 314.00)  w=57.00  h=164.00
+
+detected obj 3  class #3 (car)  confidence=0.747070
+bounding box 3  (412.75, 184.62)  (519.00, 231.88)  w=106.25  h=47.25
+
+detected obj 4  class #3 (car)  confidence=0.534180
+bounding box 4  (458.00, 181.62)  (555.00, 229.62)  w=97.00  h=48.00
+
+detected obj 5  class #1 (person)  confidence=0.531250
+bounding box 5  (665.50, 172.50)  (692.50, 260.00)  w=27.00  h=87.50
+
+detected obj 6  class #1 (person)  confidence=0.761230
+bounding box 6  (76.12, 186.75)  (97.75, 225.75)  w=21.62  h=39.00
+
+detected obj 7  class #1 (person)  confidence=0.624023
+bounding box 7  (181.62, 184.50)  (203.62, 222.50)  w=22.00  h=38.00
+
+detected obj 8  class #1 (person)  confidence=0.614746
+bounding box 8  (135.12, 186.62)  (153.62, 224.12)  w=18.50  h=37.50
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/14.jpg'  (1024x512, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.07146ms  CUDA   0.13686ms
+[TRT]    Network       CPU  11.19610ms  CUDA  10.52579ms
+[TRT]    Post-Process  CPU   0.02221ms  CUDA   0.02330ms
+[TRT]    Visualize     CPU   0.14989ms  CUDA   0.34298ms
+[TRT]    Total         CPU  11.43966ms  CUDA  11.02893ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/city_2.jpg'  (1024x512, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/15.jpg'  (1024x512, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05840ms  CUDA   0.13293ms
+[TRT]    Network       CPU  11.13121ms  CUDA  10.46262ms
+[TRT]    Post-Process  CPU   0.00963ms  CUDA   0.01002ms
+[TRT]    Visualize     CPU   0.14989ms  CUDA   0.34298ms
+[TRT]    Total         CPU  11.34913ms  CUDA  10.94854ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/city_3.jpg'  (1024x512, 3 channels)
+5 objects detected
+
+detected obj 0  class #3 (car)  confidence=0.843750
+bounding box 0  (736.50, 189.50)  (934.50, 301.25)  w=198.00  h=111.75
+
+detected obj 1  class #3 (car)  confidence=0.641602
+bounding box 1  (136.25, 217.12)  (248.75, 291.75)  w=112.50  h=74.62
+
+detected obj 2  class #3 (car)  confidence=0.679199
+bounding box 2  (635.50, 206.12)  (696.50, 261.50)  w=61.00  h=55.38
+
+detected obj 3  class #3 (car)  confidence=0.861816
+bounding box 3  (590.50, 208.50)  (647.50, 247.75)  w=57.00  h=39.25
+
+detected obj 4  class #3 (car)  confidence=0.586914
+bounding box 4  (402.00, 217.25)  (429.50, 239.75)  w=27.50  h=22.50
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/16.jpg'  (1024x512, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05856ms  CUDA   0.13405ms
+[TRT]    Network       CPU  11.18769ms  CUDA  10.51866ms
+[TRT]    Post-Process  CPU   0.01974ms  CUDA   0.01987ms
+[TRT]    Visualize     CPU   0.10999ms  CUDA   0.18691ms
+[TRT]    Total         CPU  11.37598ms  CUDA  10.85949ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/city_4.jpg'  (1024x512, 3 channels)
+6 objects detected
+
+detected obj 0  class #3 (car)  confidence=0.939941
+bounding box 0  (492.50, 195.75)  (669.50, 322.75)  w=177.00  h=127.00
+
+detected obj 1  class #1 (person)  confidence=0.756348
+bounding box 1  (339.00, 194.88)  (379.00, 288.75)  w=40.00  h=93.88
+
+detected obj 2  class #10 (traffic light)  confidence=0.815918
+bounding box 2  (281.75, 50.44)  (322.75, 126.31)  w=41.00  h=75.88
+
+detected obj 3  class #1 (person)  confidence=0.662598
+bounding box 3  (950.50, 180.62)  (972.50, 237.62)  w=22.00  h=57.00
+
+detected obj 4  class #1 (person)  confidence=0.596191
+bounding box 4  (846.00, 202.88)  (868.00, 252.62)  w=22.00  h=49.75
+
+detected obj 5  class #1 (person)  confidence=0.509766
+bounding box 5  (670.00, 210.75)  (694.00, 251.00)  w=24.00  h=40.25
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/17.jpg'  (1024x512, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05767ms  CUDA   0.12458ms
+[TRT]    Network       CPU  11.16836ms  CUDA  10.50205ms
+[TRT]    Post-Process  CPU   0.01997ms  CUDA   0.02058ms
+[TRT]    Visualize     CPU   0.14432ms  CUDA   0.21613ms
+[TRT]    Total         CPU  11.39032ms  CUDA  10.86333ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/city_5.jpg'  (1024x512, 3 channels)
+3 objects detected
+
+detected obj 0  class #3 (car)  confidence=0.893066
+bounding box 0  (416.50, 197.75)  (587.00, 324.25)  w=170.50  h=126.50
+
+detected obj 1  class #3 (car)  confidence=0.534668
+bounding box 1  (636.00, 197.62)  (786.00, 294.00)  w=150.00  h=96.38
+
+detected obj 2  class #1 (person)  confidence=0.547852
+bounding box 2  (835.00, 203.12)  (857.00, 255.12)  w=22.00  h=52.00
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/18.jpg'  (1024x512, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05802ms  CUDA   0.12717ms
+[TRT]    Network       CPU  11.20881ms  CUDA  10.54016ms
+[TRT]    Post-Process  CPU   0.01760ms  CUDA   0.01840ms
+[TRT]    Visualize     CPU   0.08819ms  CUDA   0.14656ms
+[TRT]    Total         CPU  11.37262ms  CUDA  10.83229ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/coral.jpg'  (700x383, 3 channels)
+1 objects detected
+
+detected obj 0  class #61 (cake)  confidence=0.667480
+bounding box 0  (25.29, 20.85)  (682.91, 351.96)  w=657.62  h=331.10
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/19.jpg'  (700x383, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05478ms  CUDA   0.12205ms
+[TRT]    Network       CPU  10.97098ms  CUDA  10.29520ms
+[TRT]    Post-Process  CPU   0.01322ms  CUDA   0.01478ms
+[TRT]    Visualize     CPU   0.05655ms  CUDA   0.25984ms
+[TRT]    Total         CPU  11.09552ms  CUDA  10.69187ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/desk.jpg'  (500x370, 3 channels)
+4 objects detected
+
+detected obj 0  class #72 (tv)  confidence=0.931152
+bounding box 0  (156.25, 26.56)  (381.84, 206.86)  w=225.59  h=180.30
+
+detected obj 1  class #76 (keyboard)  confidence=0.653809
+bounding box 1  (78.12, 310.74)  (373.54, 362.05)  w=295.41  h=51.31
+
+detected obj 2  class #44 (bottle)  confidence=0.647461
+bounding box 2  (31.22, 245.34)  (80.20, 357.71)  w=48.98  h=112.37
+
+detected obj 3  class #74 (mouse)  confidence=0.602051
+bounding box 3  (380.37, 311.46)  (452.15, 347.96)  w=71.78  h=36.49
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/20.jpg'  (500x370, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05802ms  CUDA   0.11434ms
+[TRT]    Network       CPU  11.18292ms  CUDA  10.52346ms
+[TRT]    Post-Process  CPU   0.01949ms  CUDA   0.02000ms
+[TRT]    Visualize     CPU   0.09517ms  CUDA   0.20426ms
+[TRT]    Total         CPU  11.35560ms  CUDA  10.86205ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/dog_0.jpg'  (500x375, 3 channels)
+2 objects detected
+
+detected obj 0  class #1 (person)  confidence=0.980469
+bounding box 0  (0.00, 50.45)  (229.61, 353.03)  w=229.61  h=302.58
+
+detected obj 1  class #18 (dog)  confidence=0.837891
+bounding box 1  (211.67, 83.68)  (431.88, 364.20)  w=220.21  h=280.52
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/21.jpg'  (500x375, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.03802ms  CUDA   0.11494ms
+[TRT]    Network       CPU  11.32596ms  CUDA  10.65251ms
+[TRT]    Post-Process  CPU   0.01632ms  CUDA   0.01670ms
+[TRT]    Visualize     CPU   0.06839ms  CUDA   0.23645ms
+[TRT]    Total         CPU  11.44869ms  CUDA  11.02061ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/dog_1.jpg'  (500x375, 3 channels)
+2 objects detected
+
+detected obj 0  class #1 (person)  confidence=0.812500
+bounding box 0  (4.94, 112.15)  (199.71, 373.90)  w=194.76  h=261.75
+
+detected obj 1  class #18 (dog)  confidence=0.587891
+bounding box 1  (239.01, 205.81)  (488.53, 373.90)  w=249.51  h=168.09
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/22.jpg'  (500x375, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.03638ms  CUDA   0.11414ms
+[TRT]    Network       CPU  11.12365ms  CUDA  10.43667ms
+[TRT]    Post-Process  CPU   0.01427ms  CUDA   0.01494ms
+[TRT]    Visualize     CPU   0.06000ms  CUDA   0.17395ms
+[TRT]    Total         CPU  11.23431ms  CUDA  10.73971ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/dog_2.jpg'  (500x386, 3 channels)
+2 objects detected
+
+detected obj 0  class #63 (couch)  confidence=0.688477
+bounding box 0  (1.34, 0.00)  (499.02, 383.74)  w=497.68  h=383.74
+
+detected obj 1  class #18 (dog)  confidence=0.940430
+bounding box 1  (0.00, 14.04)  (499.00, 375.82)  w=499.00  h=361.78
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/23.jpg'  (500x386, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.03235ms  CUDA   0.10998ms
+[TRT]    Network       CPU  11.26251ms  CUDA  10.59130ms
+[TRT]    Post-Process  CPU   0.01418ms  CUDA   0.01443ms
+[TRT]    Visualize     CPU   0.05898ms  CUDA   0.56317ms
+[TRT]    Total         CPU  11.36801ms  CUDA  11.27888ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/dog_3.jpg'  (640x426, 3 channels)
+6 objects detected
+
+detected obj 0  class #2 (bicycle)  confidence=0.856445
+bounding box 0  (2.19, 0.00)  (164.06, 321.58)  w=161.88  h=321.58
+
+detected obj 1  class #18 (dog)  confidence=0.998047
+bounding box 1  (60.23, 278.11)  (367.50, 385.02)  w=307.27  h=106.92
+
+detected obj 2  class #1 (person)  confidence=0.931152
+bounding box 2  (316.72, 96.67)  (336.56, 151.64)  w=19.84  h=54.97
+
+detected obj 3  class #1 (person)  confidence=0.885742
+bounding box 3  (281.41, 97.45)  (301.09, 151.12)  w=19.69  h=53.67
+
+detected obj 4  class #1 (person)  confidence=0.841797
+bounding box 4  (348.12, 100.88)  (366.88, 150.18)  w=18.75  h=49.30
+
+detected obj 5  class #1 (person)  confidence=0.513672
+bounding box 5  (253.28, 102.13)  (272.03, 145.61)  w=18.75  h=43.47
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/24.jpg'  (640x426, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04589ms  CUDA   0.11658ms
+[TRT]    Network       CPU  11.14586ms  CUDA  10.48352ms
+[TRT]    Post-Process  CPU   0.01648ms  CUDA   0.01805ms
+[TRT]    Visualize     CPU   0.10103ms  CUDA   0.32525ms
+[TRT]    Total         CPU  11.30926ms  CUDA  10.94339ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/drone_0255.png'  (1280x720, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/25.jpg'  (1280x720, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05728ms  CUDA   0.13920ms
+[TRT]    Network       CPU  10.94269ms  CUDA  10.26835ms
+[TRT]    Post-Process  CPU   0.01075ms  CUDA   0.01082ms
+[TRT]    Visualize     CPU   0.10103ms  CUDA   0.32525ms
+[TRT]    Total         CPU  11.11175ms  CUDA  10.74362ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/drone_0427.png'  (1280x720, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/26.jpg'  (1280x720, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05920ms  CUDA   0.14378ms
+[TRT]    Network       CPU  10.95632ms  CUDA  10.27251ms
+[TRT]    Post-Process  CPU   0.01050ms  CUDA   0.01069ms
+[TRT]    Visualize     CPU   0.10103ms  CUDA   0.32525ms
+[TRT]    Total         CPU  11.12705ms  CUDA  10.75222ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/drone_0428.png'  (1280x720, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/27.jpg'  (1280x720, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.06003ms  CUDA   0.13734ms
+[TRT]    Network       CPU  10.93270ms  CUDA  10.25050ms
+[TRT]    Post-Process  CPU   0.00970ms  CUDA   0.00998ms
+[TRT]    Visualize     CPU   0.10103ms  CUDA   0.32525ms
+[TRT]    Total         CPU  11.10346ms  CUDA  10.72307ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/drone_0435.png'  (1280x720, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/28.jpg'  (1280x720, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.06199ms  CUDA   0.14429ms
+[TRT]    Network       CPU  11.15146ms  CUDA  10.46938ms
+[TRT]    Post-Process  CPU   0.01046ms  CUDA   0.01162ms
+[TRT]    Visualize     CPU   0.10103ms  CUDA   0.32525ms
+[TRT]    Total         CPU  11.32494ms  CUDA  10.95053ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/drone_0436.png'  (1280x720, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/29.jpg'  (1280x720, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.07882ms  CUDA   0.13664ms
+[TRT]    Network       CPU  10.91936ms  CUDA  10.26141ms
+[TRT]    Post-Process  CPU   0.01034ms  CUDA   0.01101ms
+[TRT]    Visualize     CPU   0.10103ms  CUDA   0.32525ms
+[TRT]    Total         CPU  11.10954ms  CUDA  10.73430ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_0.jpg'  (688x1024, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/30.jpg'  (688x1024, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05335ms  CUDA   0.11821ms
+[TRT]    Network       CPU  11.04000ms  CUDA  10.37389ms
+[TRT]    Post-Process  CPU   0.00986ms  CUDA   0.01059ms
+[TRT]    Visualize     CPU   0.10103ms  CUDA   0.32525ms
+[TRT]    Total         CPU  11.20423ms  CUDA  10.82794ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_1.jpg'  (1024x683, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/31.jpg'  (1024x683, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04851ms  CUDA   0.12739ms
+[TRT]    Network       CPU  11.09828ms  CUDA  10.41997ms
+[TRT]    Post-Process  CPU   0.01021ms  CUDA   0.01024ms
+[TRT]    Visualize     CPU   0.10103ms  CUDA   0.32525ms
+[TRT]    Total         CPU  11.25803ms  CUDA  10.88285ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_2.jpg'  (1024x678, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/32.jpg'  (1024x678, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04842ms  CUDA   0.12826ms
+[TRT]    Network       CPU  10.98586ms  CUDA  10.30618ms
+[TRT]    Post-Process  CPU   0.00976ms  CUDA   0.01002ms
+[TRT]    Visualize     CPU   0.10103ms  CUDA   0.32525ms
+[TRT]    Total         CPU  11.14506ms  CUDA  10.76970ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_3.jpg'  (1024x768, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/33.jpg'  (1024x768, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05146ms  CUDA   0.12778ms
+[TRT]    Network       CPU  11.21716ms  CUDA  10.54595ms
+[TRT]    Post-Process  CPU   0.00938ms  CUDA   0.00995ms
+[TRT]    Visualize     CPU   0.10103ms  CUDA   0.32525ms
+[TRT]    Total         CPU  11.37902ms  CUDA  11.00893ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_4.jpg'  (1024x576, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/34.jpg'  (1024x576, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05107ms  CUDA   0.12678ms
+[TRT]    Network       CPU  11.05162ms  CUDA  10.37136ms
+[TRT]    Post-Process  CPU   0.01069ms  CUDA   0.01168ms
+[TRT]    Visualize     CPU   0.10103ms  CUDA   0.32525ms
+[TRT]    Total         CPU  11.21441ms  CUDA  10.83507ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_5.jpg'  (768x1024, 3 channels)
+1 objects detected
+
+detected obj 0  class #52 (banana)  confidence=0.992676
+bounding box 0  (83.81, 27.00)  (551.25, 949.50)  w=467.44  h=922.50
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/35.jpg'  (768x1024, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05543ms  CUDA   0.12022ms
+[TRT]    Network       CPU  11.05866ms  CUDA  10.39027ms
+[TRT]    Post-Process  CPU   0.01443ms  CUDA   0.01574ms
+[TRT]    Visualize     CPU   0.07725ms  CUDA   0.71450ms
+[TRT]    Total         CPU  11.20577ms  CUDA  11.24074ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_6.jpg'  (1024x768, 3 channels)
+1 objects detected
+
+detected obj 0  class #16 (bird)  confidence=0.905273
+bounding box 0  (169.50, 105.00)  (819.00, 747.00)  w=649.50  h=642.00
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/36.jpg'  (1024x768, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05885ms  CUDA   0.13091ms
+[TRT]    Network       CPU  10.93110ms  CUDA  10.25728ms
+[TRT]    Post-Process  CPU   0.01389ms  CUDA   0.01488ms
+[TRT]    Visualize     CPU   0.06634ms  CUDA   0.77504ms
+[TRT]    Total         CPU  11.07018ms  CUDA  11.17811ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_7.jpg'  (683x1024, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/37.jpg'  (683x1024, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.07386ms  CUDA   0.12150ms
+[TRT]    Network       CPU  11.12381ms  CUDA  10.47638ms
+[TRT]    Post-Process  CPU   0.00963ms  CUDA   0.00989ms
+[TRT]    Visualize     CPU   0.06634ms  CUDA   0.77504ms
+[TRT]    Total         CPU  11.27364ms  CUDA  11.38282ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_8.jpg'  (776x1024, 3 channels)
+1 objects detected
+
+detected obj 0  class #86 (vase)  confidence=0.501465
+bounding box 0  (48.50, 96.75)  (731.29, 988.00)  w=682.79  h=891.25
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/38.jpg'  (776x1024, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05379ms  CUDA   0.12358ms
+[TRT]    Network       CPU  10.91962ms  CUDA  10.24736ms
+[TRT]    Post-Process  CPU   0.01331ms  CUDA   0.01453ms
+[TRT]    Visualize     CPU   0.06618ms  CUDA   0.69642ms
+[TRT]    Total         CPU  11.05290ms  CUDA  11.08189ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_9.jpg'  (1024x683, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/39.jpg'  (1024x683, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.06864ms  CUDA   0.13011ms
+[TRT]    Network       CPU  11.10176ms  CUDA  10.43978ms
+[TRT]    Post-Process  CPU   0.01024ms  CUDA   0.01114ms
+[TRT]    Visualize     CPU   0.06618ms  CUDA   0.69642ms
+[TRT]    Total         CPU  11.24682ms  CUDA  11.27744ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_10.jpg'  (1024x768, 3 channels)
+1 objects detected
+
+detected obj 0  class #51 (bowl)  confidence=0.702148
+bounding box 0  (65.50, 54.75)  (997.50, 744.00)  w=932.00  h=689.25
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/40.jpg'  (1024x768, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.07415ms  CUDA   0.12688ms
+[TRT]    Network       CPU  11.01610ms  CUDA  10.35734ms
+[TRT]    Post-Process  CPU   0.01245ms  CUDA   0.01296ms
+[TRT]    Visualize     CPU   0.07549ms  CUDA   1.20589ms
+[TRT]    Total         CPU  11.17818ms  CUDA  11.70307ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_11.jpg'  (1024x703, 3 channels)
+3 objects detected
+
+detected obj 0  class #55 (orange)  confidence=0.903809
+bounding box 0  (506.50, 150.01)  (990.50, 627.14)  w=484.00  h=477.13
+
+detected obj 1  class #55 (orange)  confidence=0.740723
+bounding box 1  (193.62, 86.50)  (569.00, 487.43)  w=375.38  h=400.93
+
+detected obj 2  class #53 (apple)  confidence=0.983887
+bounding box 2  (203.62, 94.05)  (571.00, 488.12)  w=367.38  h=394.06
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/41.jpg'  (1024x703, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05504ms  CUDA   0.12794ms
+[TRT]    Network       CPU  11.19102ms  CUDA  10.51651ms
+[TRT]    Post-Process  CPU   0.02083ms  CUDA   0.02195ms
+[TRT]    Visualize     CPU   0.09767ms  CUDA   0.96970ms
+[TRT]    Total         CPU  11.36456ms  CUDA  11.63610ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_12.jpg'  (1024x1024, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/42.jpg'  (1024x1024, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05427ms  CUDA   0.12634ms
+[TRT]    Network       CPU  11.33566ms  CUDA  10.98138ms
+[TRT]    Post-Process  CPU   0.00967ms  CUDA   0.00243ms
+[TRT]    Visualize     CPU   0.09767ms  CUDA   0.96970ms
+[TRT]    Total         CPU  11.49726ms  CUDA  12.07984ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_13.jpg'  (1024x768, 3 channels)
+2 objects detected
+
+detected obj 0  class #52 (banana)  confidence=0.766113
+bounding box 0  (165.25, 52.88)  (834.00, 757.12)  w=668.75  h=704.25
+
+detected obj 1  class #52 (banana)  confidence=0.633301
+bounding box 1  (143.00, 29.25)  (592.50, 711.75)  w=449.50  h=682.50
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/43.jpg'  (1024x768, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04813ms  CUDA   0.12582ms
+[TRT]    Network       CPU  11.03962ms  CUDA  10.35917ms
+[TRT]    Post-Process  CPU   0.02019ms  CUDA   0.02032ms
+[TRT]    Visualize     CPU   0.08692ms  CUDA   1.08304ms
+[TRT]    Total         CPU  11.19486ms  CUDA  11.58835ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_14.jpg'  (1024x825, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/44.jpg'  (1024x825, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04778ms  CUDA   0.12646ms
+[TRT]    Network       CPU  10.84409ms  CUDA  10.16413ms
+[TRT]    Post-Process  CPU   0.01088ms  CUDA   0.01171ms
+[TRT]    Visualize     CPU   0.08692ms  CUDA   1.08304ms
+[TRT]    Total         CPU  10.98967ms  CUDA  11.38534ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_15.jpg'  (1024x819, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/45.jpg'  (1024x819, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.06432ms  CUDA   0.12918ms
+[TRT]    Network       CPU  10.99651ms  CUDA  10.33034ms
+[TRT]    Post-Process  CPU   0.00954ms  CUDA   0.01014ms
+[TRT]    Visualize     CPU   0.08692ms  CUDA   1.08304ms
+[TRT]    Total         CPU  11.15729ms  CUDA  11.55270ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_16.jpg'  (1024x768, 3 channels)
+1 objects detected
+
+detected obj 0  class #61 (cake)  confidence=0.948242
+bounding box 0  (318.25, 101.53)  (835.00, 432.00)  w=516.75  h=330.47
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/46.jpg'  (1024x768, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.06147ms  CUDA   0.12691ms
+[TRT]    Network       CPU  11.40398ms  CUDA  11.06144ms
+[TRT]    Post-Process  CPU   0.01322ms  CUDA   0.00214ms
+[TRT]    Visualize     CPU   0.06640ms  CUDA   0.29286ms
+[TRT]    Total         CPU  11.54507ms  CUDA  11.48336ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_17.jpg'  (768x1024, 3 channels)
+1 objects detected
+
+detected obj 0  class #1 (person)  confidence=0.887695
+bounding box 0  (0.00, 427.00)  (172.88, 949.00)  w=172.88  h=522.00
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/47.jpg'  (768x1024, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04586ms  CUDA   0.11974ms
+[TRT]    Network       CPU  10.95693ms  CUDA  10.28250ms
+[TRT]    Post-Process  CPU   0.02055ms  CUDA   0.02054ms
+[TRT]    Visualize     CPU   0.06192ms  CUDA   0.17869ms
+[TRT]    Total         CPU  11.08525ms  CUDA  10.60147ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_18.jpg'  (1024x1024, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/48.jpg'  (1024x1024, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04986ms  CUDA   0.12838ms
+[TRT]    Network       CPU  10.82016ms  CUDA  10.14717ms
+[TRT]    Post-Process  CPU   0.00957ms  CUDA   0.01011ms
+[TRT]    Visualize     CPU   0.06192ms  CUDA   0.17869ms
+[TRT]    Total         CPU  10.94151ms  CUDA  10.46435ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_19.jpg'  (768x1024, 3 channels)
+1 objects detected
+
+detected obj 0  class #16 (bird)  confidence=0.612305
+bounding box 0  (17.62, 355.50)  (413.25, 984.50)  w=395.62  h=629.00
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/49.jpg'  (768x1024, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04727ms  CUDA   0.12157ms
+[TRT]    Network       CPU  11.01735ms  CUDA  10.34797ms
+[TRT]    Post-Process  CPU   0.01232ms  CUDA   0.01344ms
+[TRT]    Visualize     CPU   0.06381ms  CUDA   0.44189ms
+[TRT]    Total         CPU  11.14074ms  CUDA  10.92486ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/fruit_20.jpg'  (1024x683, 3 channels)
+1 objects detected
+
+detected obj 0  class #64 (potted plant)  confidence=0.722656
+bounding box 0  (5.00, 7.00)  (602.00, 678.66)  w=597.00  h=671.66
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/50.jpg'  (1024x683, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05655ms  CUDA   0.12874ms
+[TRT]    Network       CPU  11.06976ms  CUDA  10.39574ms
+[TRT]    Post-Process  CPU   0.01312ms  CUDA   0.01363ms
+[TRT]    Visualize     CPU   0.07059ms  CUDA   0.52515ms
+[TRT]    Total         CPU  11.21002ms  CUDA  11.06326ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/granny_smith_0.jpg'  (400x400, 3 channels)
+1 objects detected
+
+detected obj 0  class #53 (apple)  confidence=0.975098
+bounding box 0  (50.39, 78.22)  (344.53, 371.88)  w=294.14  h=293.65
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/51.jpg'  (400x400, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04499ms  CUDA   0.11008ms
+[TRT]    Network       CPU  10.90870ms  CUDA  10.24800ms
+[TRT]    Post-Process  CPU   0.01222ms  CUDA   0.01238ms
+[TRT]    Visualize     CPU   0.05875ms  CUDA   0.14653ms
+[TRT]    Total         CPU  11.02468ms  CUDA  10.51699ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/granny_smith_1.jpg'  (1000x1000, 3 channels)
+1 objects detected
+
+detected obj 0  class #53 (apple)  confidence=0.800293
+bounding box 0  (111.08, 126.95)  (888.67, 884.77)  w=777.59  h=757.81
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/52.jpg'  (1000x1000, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05450ms  CUDA   0.12928ms
+[TRT]    Network       CPU  10.95402ms  CUDA  10.27667ms
+[TRT]    Post-Process  CPU   0.01261ms  CUDA   0.01389ms
+[TRT]    Visualize     CPU   0.06055ms  CUDA   0.91520ms
+[TRT]    Total         CPU  11.08167ms  CUDA  11.33504ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/grass.jpg'  (3761x2507, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/53.jpg'  (3761x2507, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.06288ms  CUDA   0.19232ms
+[TRT]    Network       CPU  10.86976ms  CUDA  10.14138ms
+[TRT]    Post-Process  CPU   0.00998ms  CUDA   0.01062ms
+[TRT]    Visualize     CPU   0.06055ms  CUDA   0.91520ms
+[TRT]    Total         CPU  11.00317ms  CUDA  11.25952ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/horse_0.jpg'  (500x333, 3 channels)
+2 objects detected
+
+detected obj 0  class #19 (horse)  confidence=0.995117
+bounding box 0  (151.37, 83.09)  (471.68, 292.51)  w=320.31  h=209.43
+
+detected obj 1  class #1 (person)  confidence=0.681152
+bounding box 1  (259.28, 51.42)  (304.20, 180.81)  w=44.92  h=129.39
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/54.jpg'  (500x333, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.06202ms  CUDA   0.11568ms
+[TRT]    Network       CPU  11.09344ms  CUDA  10.44694ms
+[TRT]    Post-Process  CPU   0.02125ms  CUDA   0.02176ms
+[TRT]    Visualize     CPU   0.08813ms  CUDA   0.15859ms
+[TRT]    Total         CPU  11.26484ms  CUDA  10.74298ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/horse_1.jpg'  (500x286, 3 channels)
+2 objects detected
+
+detected obj 0  class #19 (horse)  confidence=0.996094
+bounding box 0  (190.67, 107.32)  (324.46, 268.96)  w=133.79  h=161.64
+
+detected obj 1  class #1 (person)  confidence=0.965820
+bounding box 1  (293.95, 74.36)  (375.49, 268.68)  w=81.54  h=194.32
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/55.jpg'  (500x286, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.03725ms  CUDA   0.11165ms
+[TRT]    Network       CPU  11.07655ms  CUDA  10.41030ms
+[TRT]    Post-Process  CPU   0.01699ms  CUDA   0.01738ms
+[TRT]    Visualize     CPU   0.07018ms  CUDA   0.12250ms
+[TRT]    Total         CPU  11.20097ms  CUDA  10.66182ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/horse_2.jpg'  (454x500, 3 channels)
+2 objects detected
+
+detected obj 0  class #19 (horse)  confidence=0.931641
+bounding box 0  (2.55, 77.88)  (276.66, 483.15)  w=274.11  h=405.27
+
+detected obj 1  class #19 (horse)  confidence=0.796875
+bounding box 1  (280.20, 157.47)  (453.00, 422.61)  w=172.80  h=265.14
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/56.jpg'  (454x500, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.03229ms  CUDA   0.11827ms
+[TRT]    Network       CPU  11.30046ms  CUDA  10.61802ms
+[TRT]    Post-Process  CPU   0.01462ms  CUDA   0.01549ms
+[TRT]    Visualize     CPU   0.06317ms  CUDA   0.25635ms
+[TRT]    Total         CPU  11.41054ms  CUDA  11.00813ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/humans_0.jpg'  (413x300, 3 channels)
+3 objects detected
+
+detected obj 0  class #1 (person)  confidence=0.994629
+bounding box 0  (59.19, 38.09)  (267.40, 285.94)  w=208.21  h=247.85
+
+detected obj 1  class #1 (person)  confidence=0.984863
+bounding box 1  (195.41, 18.16)  (355.12, 268.07)  w=159.71  h=249.90
+
+detected obj 2  class #37 (sports ball)  confidence=0.875977
+bounding box 2  (141.06, 234.08)  (180.99, 278.32)  w=39.93  h=44.24
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/57.jpg'  (413x300, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.06547ms  CUDA   0.11037ms
+[TRT]    Network       CPU  11.15230ms  CUDA  10.50461ms
+[TRT]    Post-Process  CPU   0.01763ms  CUDA   0.01859ms
+[TRT]    Visualize     CPU   0.08218ms  CUDA   0.25235ms
+[TRT]    Total         CPU  11.31758ms  CUDA  10.88592ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/humans_1.jpg'  (585x388, 3 channels)
+4 objects detected
+
+detected obj 0  class #1 (person)  confidence=0.909668
+bounding box 0  (389.90, 11.08)  (503.02, 385.73)  w=113.12  h=374.64
+
+detected obj 1  class #1 (person)  confidence=0.980469
+bounding box 1  (90.55, 24.44)  (200.38, 364.70)  w=109.83  h=340.26
+
+detected obj 2  class #1 (person)  confidence=0.689941
+bounding box 2  (296.50, 43.20)  (366.20, 351.25)  w=69.70  h=308.05
+
+detected obj 3  class #1 (person)  confidence=0.549316
+bounding box 3  (326.21, 37.99)  (386.19, 346.70)  w=59.99  h=308.71
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/58.jpg'  (585x388, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.03399ms  CUDA   0.11325ms
+[TRT]    Network       CPU  11.28465ms  CUDA  10.61168ms
+[TRT]    Post-Process  CPU   0.01453ms  CUDA   0.01587ms
+[TRT]    Visualize     CPU   0.08234ms  CUDA   0.30304ms
+[TRT]    Total         CPU  11.41550ms  CUDA  11.04384ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/humans_2.jpg'  (1024x669, 3 channels)
+3 objects detected
+
+detected obj 0  class #1 (person)  confidence=0.932617
+bounding box 0  (616.50, 36.91)  (961.50, 658.87)  w=345.00  h=621.96
+
+detected obj 1  class #1 (person)  confidence=0.929199
+bounding box 1  (165.75, 235.20)  (390.25, 599.09)  w=224.50  h=363.90
+
+detected obj 2  class #27 (backpack)  confidence=0.948730
+bounding box 2  (780.00, 134.18)  (979.00, 389.05)  w=199.00  h=254.88
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/59.jpg'  (1024x669, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.07127ms  CUDA   0.13222ms
+[TRT]    Network       CPU  11.31092ms  CUDA  10.64896ms
+[TRT]    Post-Process  CPU   0.01786ms  CUDA   0.01885ms
+[TRT]    Visualize     CPU   0.08679ms  CUDA   0.46422ms
+[TRT]    Total         CPU  11.48683ms  CUDA  11.26426ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/humans_3.jpg'  (1000x667, 3 channels)
+2 objects detected
+
+detected obj 0  class #1 (person)  confidence=0.945312
+bounding box 0  (353.03, 55.37)  (775.88, 626.62)  w=422.85  h=571.25
+
+detected obj 1  class #1 (person)  confidence=0.682129
+bounding box 1  (382.81, 0.00)  (676.76, 510.67)  w=293.95  h=510.67
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/60.jpg'  (1000x667, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05981ms  CUDA   0.13312ms
+[TRT]    Network       CPU  11.09994ms  CUDA  10.42544ms
+[TRT]    Post-Process  CPU   0.01914ms  CUDA   0.02061ms
+[TRT]    Visualize     CPU   0.08861ms  CUDA   0.62595ms
+[TRT]    Total         CPU  11.26750ms  CUDA  11.20512ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/humans_4.jpg'  (1000x667, 3 channels)
+7 objects detected
+
+detected obj 0  class #1 (person)  confidence=0.981934
+bounding box 0  (601.07, 214.46)  (804.20, 528.26)  w=203.12  h=313.80
+
+detected obj 1  class #1 (person)  confidence=0.990723
+bounding box 1  (409.42, 227.33)  (605.96, 542.59)  w=196.53  h=315.26
+
+detected obj 2  class #1 (person)  confidence=0.996582
+bounding box 2  (156.37, 242.31)  (325.68, 553.66)  w=169.31  h=311.35
+
+detected obj 3  class #1 (person)  confidence=0.792969
+bounding box 3  (832.03, 65.95)  (939.45, 347.18)  w=107.42  h=281.23
+
+detected obj 4  class #1 (person)  confidence=0.956543
+bounding box 4  (67.08, 209.41)  (187.50, 422.09)  w=120.42  h=212.67
+
+detected obj 5  class #40 (baseball glove)  confidence=0.547363
+bounding box 5  (98.27, 340.67)  (181.52, 405.15)  w=83.25  h=64.49
+
+detected obj 6  class #37 (sports ball)  confidence=0.744629
+bounding box 6  (379.39, 486.57)  (434.08, 532.17)  w=54.69  h=45.60
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/61.jpg'  (1000x667, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.07607ms  CUDA   0.13341ms
+[TRT]    Network       CPU  11.14436ms  CUDA  10.48691ms
+[TRT]    Post-Process  CPU   0.02285ms  CUDA   0.02413ms
+[TRT]    Visualize     CPU   0.13764ms  CUDA   0.51066ms
+[TRT]    Total         CPU  11.38091ms  CUDA  11.15510ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/humans_5.jpg'  (1024x606, 3 channels)
+5 objects detected
+
+detected obj 0  class #1 (person)  confidence=0.931152
+bounding box 0  (359.25, 48.23)  (499.25, 555.70)  w=140.00  h=507.47
+
+detected obj 1  class #1 (person)  confidence=0.983398
+bounding box 1  (492.00, 61.69)  (632.00, 534.39)  w=140.00  h=472.70
+
+detected obj 2  class #1 (person)  confidence=0.956543
+bounding box 2  (733.50, 39.06)  (871.50, 513.98)  w=138.00  h=474.92
+
+detected obj 3  class #1 (person)  confidence=0.951172
+bounding box 3  (618.50, 56.66)  (743.50, 513.68)  w=125.00  h=457.02
+
+detected obj 4  class #1 (person)  confidence=0.778809
+bounding box 4  (864.00, 66.58)  (991.00, 507.17)  w=127.00  h=440.59
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/62.jpg'  (1024x606, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.07319ms  CUDA   0.12934ms
+[TRT]    Network       CPU  11.17902ms  CUDA  10.52003ms
+[TRT]    Post-Process  CPU   0.02054ms  CUDA   0.02112ms
+[TRT]    Visualize     CPU   0.11799ms  CUDA   0.61718ms
+[TRT]    Total         CPU  11.39073ms  CUDA  11.28768ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/humans_6.jpg'  (585x388, 3 channels)
+4 objects detected
+
+detected obj 0  class #1 (person)  confidence=0.840332
+bounding box 0  (434.75, 33.72)  (582.14, 384.59)  w=147.39  h=350.87
+
+detected obj 1  class #1 (person)  confidence=0.908203
+bounding box 1  (226.80, 61.76)  (387.91, 380.42)  w=161.10  h=318.66
+
+detected obj 2  class #1 (person)  confidence=0.917480
+bounding box 2  (61.81, 92.55)  (199.09, 387.00)  w=137.29  h=294.45
+
+detected obj 3  class #1 (person)  confidence=0.824219
+bounding box 3  (1.18, 139.82)  (90.41, 387.62)  w=89.23  h=247.80
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/63.jpg'  (585x388, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.07776ms  CUDA   0.11312ms
+[TRT]    Network       CPU  11.17732ms  CUDA  10.54061ms
+[TRT]    Post-Process  CPU   0.01952ms  CUDA   0.02029ms
+[TRT]    Visualize     CPU   0.10439ms  CUDA   0.32541ms
+[TRT]    Total         CPU  11.37899ms  CUDA  10.99942ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/humans_7.jpg'  (683x1024, 3 channels)
+3 objects detected
+
+detected obj 0  class #1 (person)  confidence=0.953125
+bounding box 0  (417.54, 245.25)  (646.32, 956.00)  w=228.78  h=710.75
+
+detected obj 1  class #1 (person)  confidence=0.985840
+bounding box 1  (127.65, 194.75)  (304.15, 926.00)  w=176.50  h=731.25
+
+detected obj 2  class #1 (person)  confidence=0.995117
+bounding box 2  (265.46, 247.00)  (434.21, 922.00)  w=168.75  h=675.00
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/64.jpg'  (683x1024, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.06109ms  CUDA   0.12342ms
+[TRT]    Network       CPU  11.20599ms  CUDA  10.54387ms
+[TRT]    Post-Process  CPU   0.01802ms  CUDA   0.01930ms
+[TRT]    Visualize     CPU   0.09069ms  CUDA   0.41597ms
+[TRT]    Total         CPU  11.37579ms  CUDA  11.10256ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/humans_8.jpg'  (375x594, 3 channels)
+3 objects detected
+
+detected obj 0  class #1 (person)  confidence=0.971680
+bounding box 0  (69.72, 15.81)  (236.02, 567.32)  w=166.31  h=551.51
+
+detected obj 1  class #1 (person)  confidence=0.953125
+bounding box 1  (185.39, 58.59)  (316.04, 563.26)  w=130.65  h=504.67
+
+detected obj 2  class #32 (tie)  confidence=0.694336
+bounding box 2  (148.13, 138.28)  (176.51, 218.40)  w=28.38  h=80.12
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/65.jpg'  (375x594, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05751ms  CUDA   0.11763ms
+[TRT]    Network       CPU  11.16829ms  CUDA  10.50547ms
+[TRT]    Post-Process  CPU   0.02019ms  CUDA   0.02096ms
+[TRT]    Visualize     CPU   0.07901ms  CUDA   0.28202ms
+[TRT]    Total         CPU  11.32500ms  CUDA  10.92608ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/humans_9.jpg'  (1024x768, 3 channels)
+4 objects detected
+
+detected obj 0  class #1 (person)  confidence=0.980957
+bounding box 0  (193.25, 178.50)  (833.00, 747.75)  w=639.75  h=569.25
+
+detected obj 1  class #1 (person)  confidence=0.629395
+bounding box 1  (462.75, 308.81)  (825.00, 725.25)  w=362.25  h=416.44
+
+detected obj 2  class #1 (person)  confidence=0.804199
+bounding box 2  (464.25, 315.75)  (672.00, 576.75)  w=207.75  h=261.00
+
+detected obj 3  class #1 (person)  confidence=0.700684
+bounding box 3  (116.25, 251.62)  (138.75, 299.25)  w=22.50  h=47.62
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/66.jpg'  (1024x768, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05805ms  CUDA   0.12832ms
+[TRT]    Network       CPU  11.06461ms  CUDA  10.39328ms
+[TRT]    Post-Process  CPU   0.01968ms  CUDA   0.02077ms
+[TRT]    Visualize     CPU   0.09088ms  CUDA   1.06781ms
+[TRT]    Total         CPU  11.23323ms  CUDA  11.61018ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/jellyfish.jpg'  (700x560, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/67.jpg'  (700x560, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05699ms  CUDA   0.11731ms
+[TRT]    Network       CPU  10.92445ms  CUDA  10.27722ms
+[TRT]    Post-Process  CPU   0.00998ms  CUDA   0.01072ms
+[TRT]    Visualize     CPU   0.09088ms  CUDA   1.06781ms
+[TRT]    Total         CPU  11.08231ms  CUDA  11.47306ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/object_0.jpg'  (500x333, 3 channels)
+3 objects detected
+
+detected obj 0  class #4 (motorcycle)  confidence=0.831543
+bounding box 0  (1.83, 49.02)  (435.55, 327.15)  w=433.72  h=278.12
+
+detected obj 1  class #1 (person)  confidence=0.889648
+bounding box 1  (4.76, 0.00)  (196.53, 327.80)  w=191.77  h=327.80
+
+detected obj 2  class #1 (person)  confidence=0.626465
+bounding box 2  (363.04, 137.07)  (413.82, 230.40)  w=50.78  h=93.33
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/68.jpg'  (500x333, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04887ms  CUDA   0.11581ms
+[TRT]    Network       CPU  11.02794ms  CUDA  10.36470ms
+[TRT]    Post-Process  CPU   0.01990ms  CUDA   0.02038ms
+[TRT]    Visualize     CPU   0.08051ms  CUDA   0.32717ms
+[TRT]    Total         CPU  11.17722ms  CUDA  10.82806ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/object_1.jpg'  (500x386, 3 channels)
+2 objects detected
+
+detected obj 0  class #63 (couch)  confidence=0.648926
+bounding box 0  (1.59, 0.94)  (499.02, 383.74)  w=497.44  h=382.80
+
+detected obj 1  class #18 (dog)  confidence=0.940918
+bounding box 1  (0.00, 14.80)  (499.00, 375.45)  w=499.00  h=360.65
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/69.jpg'  (500x386, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04666ms  CUDA   0.11002ms
+[TRT]    Network       CPU  11.02653ms  CUDA  10.38035ms
+[TRT]    Post-Process  CPU   0.01760ms  CUDA   0.01875ms
+[TRT]    Visualize     CPU   0.06448ms  CUDA   0.51293ms
+[TRT]    Total         CPU  11.15527ms  CUDA  11.02205ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/object_2.jpg'  (500x333, 3 channels)
+1 objects detected
+
+detected obj 0  class #7 (train)  confidence=0.934570
+bounding box 0  (153.56, 60.08)  (370.85, 264.06)  w=217.29  h=203.98
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/70.jpg'  (500x333, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.03399ms  CUDA   0.11674ms
+[TRT]    Network       CPU  11.09706ms  CUDA  10.41686ms
+[TRT]    Post-Process  CPU   0.01296ms  CUDA   0.01370ms
+[TRT]    Visualize     CPU   0.04583ms  CUDA   0.11786ms
+[TRT]    Total         CPU  11.18983ms  CUDA  10.66515ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/object_3.jpg'  (500x336, 3 channels)
+2 objects detected
+
+detected obj 0  class #9 (boat)  confidence=0.999512
+bounding box 0  (74.46, 159.30)  (251.95, 318.45)  w=177.49  h=159.14
+
+detected obj 1  class #9 (boat)  confidence=0.990723
+bounding box 1  (191.65, 168.98)  (460.69, 262.83)  w=269.04  h=93.84
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/71.jpg'  (500x336, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.02848ms  CUDA   0.11014ms
+[TRT]    Network       CPU  11.08372ms  CUDA  10.41613ms
+[TRT]    Post-Process  CPU   0.01718ms  CUDA   0.01808ms
+[TRT]    Visualize     CPU   0.05136ms  CUDA   0.14083ms
+[TRT]    Total         CPU  11.18074ms  CUDA  10.68518ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/object_4.jpg'  (500x334, 3 channels)
+1 objects detected
+
+detected obj 0  class #16 (bird)  confidence=0.968262
+bounding box 0  (64.45, 63.69)  (410.89, 332.37)  w=346.44  h=268.68
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/72.jpg'  (500x334, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.02893ms  CUDA   0.11187ms
+[TRT]    Network       CPU  11.04733ms  CUDA  10.37920ms
+[TRT]    Post-Process  CPU   0.01021ms  CUDA   0.01117ms
+[TRT]    Visualize     CPU   0.03847ms  CUDA   0.13821ms
+[TRT]    Total         CPU  11.12493ms  CUDA  10.64045ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/object_5.jpg'  (375x500, 3 channels)
+2 objects detected
+
+detected obj 0  class #4 (motorcycle)  confidence=0.946777
+bounding box 0  (0.00, 240.84)  (276.12, 458.50)  w=276.12  h=217.65
+
+detected obj 1  class #1 (person)  confidence=0.994141
+bounding box 1  (40.79, 136.23)  (216.06, 455.08)  w=175.28  h=318.85
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/73.jpg'  (375x500, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.03059ms  CUDA   0.11229ms
+[TRT]    Network       CPU  11.22391ms  CUDA  10.53747ms
+[TRT]    Post-Process  CPU   0.01478ms  CUDA   0.01514ms
+[TRT]    Visualize     CPU   0.05171ms  CUDA   0.20461ms
+[TRT]    Total         CPU  11.32100ms  CUDA  10.86950ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/object_6.jpg'  (500x375, 3 channels)
+4 objects detected
+
+detected obj 0  class #4 (motorcycle)  confidence=0.994141
+bounding box 0  (40.65, 55.57)  (455.57, 322.63)  w=414.92  h=267.06
+
+detected obj 1  class #15 (bench)  confidence=0.900879
+bounding box 1  (0.00, 56.17)  (162.35, 177.98)  w=162.35  h=121.81
+
+detected obj 2  class #4 (motorcycle)  confidence=0.931152
+bounding box 2  (315.19, 52.46)  (483.15, 155.00)  w=167.97  h=102.54
+
+detected obj 3  class #1 (person)  confidence=0.633301
+bounding box 3  (355.22, 5.08)  (466.06, 118.47)  w=110.84  h=113.39
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/74.jpg'  (500x375, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.03037ms  CUDA   0.10976ms
+[TRT]    Network       CPU  11.28475ms  CUDA  10.61248ms
+[TRT]    Post-Process  CPU   0.01664ms  CUDA   0.01674ms
+[TRT]    Visualize     CPU   0.07363ms  CUDA   0.30486ms
+[TRT]    Total         CPU  11.40539ms  CUDA  11.04384ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/object_7.jpg'  (500x375, 3 channels)
+2 objects detected
+
+detected obj 0  class #6 (bus)  confidence=0.982910
+bounding box 0  (39.92, 39.46)  (374.02, 333.25)  w=334.11  h=293.79
+
+detected obj 1  class #6 (bus)  confidence=0.599121
+bounding box 1  (351.56, 111.05)  (481.93, 291.14)  w=130.37  h=180.08
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/75.jpg'  (500x375, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.02720ms  CUDA   0.11072ms
+[TRT]    Network       CPU  10.99184ms  CUDA  10.32246ms
+[TRT]    Post-Process  CPU   0.01440ms  CUDA   0.01530ms
+[TRT]    Visualize     CPU   0.05178ms  CUDA   0.21750ms
+[TRT]    Total         CPU  11.08522ms  CUDA  10.66598ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/object_8.jpg'  (500x375, 3 channels)
+2 objects detected
+
+detected obj 0  class #7 (train)  confidence=0.967773
+bounding box 0  (0.00, 100.34)  (440.43, 320.07)  w=440.43  h=219.73
+
+detected obj 1  class #10 (traffic light)  confidence=0.581543
+bounding box 1  (489.75, 66.33)  (499.00, 119.57)  w=9.25  h=53.24
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/76.jpg'  (500x375, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.02698ms  CUDA   0.11018ms
+[TRT]    Network       CPU  11.04583ms  CUDA  10.36934ms
+[TRT]    Post-Process  CPU   0.01248ms  CUDA   0.01322ms
+[TRT]    Visualize     CPU   0.04963ms  CUDA   0.19226ms
+[TRT]    Total         CPU  11.13492ms  CUDA  10.68499ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/orange_0.jpg'  (1024x683, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/77.jpg'  (1024x683, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05920ms  CUDA   0.13309ms
+[TRT]    Network       CPU  11.10689ms  CUDA  10.43379ms
+[TRT]    Post-Process  CPU   0.01075ms  CUDA   0.01088ms
+[TRT]    Visualize     CPU   0.04963ms  CUDA   0.19226ms
+[TRT]    Total         CPU  11.22647ms  CUDA  10.77002ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/orange_1.jpg'  (688x1024, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/78.jpg'  (688x1024, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05584ms  CUDA   0.12656ms
+[TRT]    Network       CPU  11.06160ms  CUDA  10.39040ms
+[TRT]    Post-Process  CPU   0.00986ms  CUDA   0.01043ms
+[TRT]    Visualize     CPU   0.04963ms  CUDA   0.19226ms
+[TRT]    Total         CPU  11.17694ms  CUDA  10.71965ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/peds_0.jpg'  (1920x1080, 3 channels)
+4 objects detected
+
+detected obj 0  class #1 (person)  confidence=0.983887
+bounding box 0  (1074.38, 108.11)  (1396.88, 1003.54)  w=322.50  h=895.43
+
+detected obj 1  class #1 (person)  confidence=0.698730
+bounding box 1  (459.38, 123.40)  (742.50, 943.42)  w=283.12  h=820.02
+
+detected obj 2  class #1 (person)  confidence=0.974121
+bounding box 2  (741.56, 159.79)  (1021.88, 941.31)  w=280.31  h=781.52
+
+detected obj 3  class #1 (person)  confidence=0.861816
+bounding box 3  (1479.38, 150.03)  (1721.25, 914.41)  w=241.88  h=764.38
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/79.jpg'  (1920x1080, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05920ms  CUDA   0.15235ms
+[TRT]    Network       CPU  11.32401ms  CUDA  10.63011ms
+[TRT]    Post-Process  CPU   0.02202ms  CUDA   0.02298ms
+[TRT]    Visualize     CPU   0.09911ms  CUDA   1.66275ms
+[TRT]    Total         CPU  11.50434ms  CUDA  12.46819ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/peds_1.jpg'  (1920x1080, 3 channels)
+2 objects detected
+
+detected obj 0  class #3 (car)  confidence=0.807129
+bounding box 0  (398.91, 312.71)  (1919.00, 913.89)  w=1520.09  h=601.17
+
+detected obj 1  class #1 (person)  confidence=0.983887
+bounding box 1  (467.81, 108.63)  (888.75, 1059.96)  w=420.94  h=951.33
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/80.jpg'  (1920x1080, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.06035ms  CUDA   0.15456ms
+[TRT]    Network       CPU  11.13610ms  CUDA  10.44352ms
+[TRT]    Post-Process  CPU   0.01850ms  CUDA   0.01904ms
+[TRT]    Visualize     CPU   0.07459ms  CUDA   2.29011ms
+[TRT]    Total         CPU  11.28955ms  CUDA  12.90723ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/peds_2.jpg'  (500x375, 3 channels)
+3 objects detected
+
+detected obj 0  class #4 (motorcycle)  confidence=0.766113
+bounding box 0  (15.08, 115.17)  (226.56, 370.79)  w=211.49  h=255.62
+
+detected obj 1  class #1 (person)  confidence=0.931641
+bounding box 1  (369.63, 107.67)  (437.99, 269.53)  w=68.36  h=161.87
+
+detected obj 2  class #4 (motorcycle)  confidence=0.877441
+bounding box 2  (234.50, 125.70)  (320.31, 223.75)  w=85.82  h=98.05
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/81.jpg'  (500x375, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05555ms  CUDA   0.11658ms
+[TRT]    Network       CPU  11.11879ms  CUDA  10.45578ms
+[TRT]    Post-Process  CPU   0.02051ms  CUDA   0.02163ms
+[TRT]    Visualize     CPU   0.08627ms  CUDA   0.21962ms
+[TRT]    Total         CPU  11.28113ms  CUDA  10.81360ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/peds_3.jpg'  (1024x611, 3 channels)
+6 objects detected
+
+detected obj 0  class #1 (person)  confidence=0.922363
+bounding box 0  (379.50, 62.35)  (543.00, 579.67)  w=163.50  h=517.32
+
+detected obj 1  class #1 (person)  confidence=0.894531
+bounding box 1  (47.69, 66.68)  (190.50, 523.29)  w=142.81  h=456.61
+
+detected obj 2  class #1 (person)  confidence=0.652344
+bounding box 2  (719.50, 76.67)  (829.50, 422.45)  w=110.00  h=345.78
+
+detected obj 3  class #33 (suitcase)  confidence=0.915039
+bounding box 3  (535.00, 387.84)  (710.00, 562.67)  w=175.00  h=174.83
+
+detected obj 4  class #33 (suitcase)  confidence=0.705566
+bounding box 4  (168.50, 337.12)  (315.75, 497.03)  w=147.25  h=159.91
+
+detected obj 5  class #1 (person)  confidence=0.561035
+bounding box 5  (540.00, 130.15)  (620.00, 361.89)  w=80.00  h=231.74
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/82.jpg'  (1024x611, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05872ms  CUDA   0.13101ms
+[TRT]    Network       CPU  11.13581ms  CUDA  10.46214ms
+[TRT]    Post-Process  CPU   0.02234ms  CUDA   0.02294ms
+[TRT]    Visualize     CPU   0.11373ms  CUDA   0.57446ms
+[TRT]    Total         CPU  11.33060ms  CUDA  11.19056ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/peds_4.jpg'  (2096x1402, 3 channels)
+2 objects detected
+
+detected obj 0  class #1 (person)  confidence=0.513672
+bounding box 0  (1442.02, 727.01)  (1601.68, 1158.29)  w=159.66  h=431.28
+
+detected obj 1  class #1 (person)  confidence=0.585449
+bounding box 1  (991.20, 712.64)  (1061.30, 898.84)  w=70.11  h=186.20
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/83.jpg'  (2096x1402, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.06218ms  CUDA   0.15379ms
+[TRT]    Network       CPU  11.08775ms  CUDA  10.39722ms
+[TRT]    Post-Process  CPU   0.01978ms  CUDA   0.02035ms
+[TRT]    Visualize     CPU   0.07661ms  CUDA   0.17504ms
+[TRT]    Total         CPU  11.24631ms  CUDA  10.74640ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/polar_bear.jpg'  (563x565, 3 channels)
+1 objects detected
+
+detected obj 0  class #23 (bear)  confidence=0.997559
+bounding box 0  (62.13, 72.28)  (487.40, 520.31)  w=425.27  h=448.03
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/84.jpg'  (563x565, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05661ms  CUDA   0.11974ms
+[TRT]    Network       CPU  11.27067ms  CUDA  10.61939ms
+[TRT]    Post-Process  CPU   0.01344ms  CUDA   0.01370ms
+[TRT]    Visualize     CPU   0.05495ms  CUDA   0.26378ms
+[TRT]    Total         CPU  11.39566ms  CUDA  11.01661ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/red_apple_0.jpg'  (950x950, 3 channels)
+1 objects detected
+
+detected obj 0  class #53 (apple)  confidence=0.958008
+bounding box 0  (69.35, 61.23)  (871.14, 898.97)  w=801.79  h=837.74
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/85.jpg'  (950x950, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05709ms  CUDA   0.12963ms
+[TRT]    Network       CPU  10.95766ms  CUDA  10.28352ms
+[TRT]    Post-Process  CPU   0.01322ms  CUDA   0.01392ms
+[TRT]    Visualize     CPU   0.05776ms  CUDA   0.82083ms
+[TRT]    Total         CPU  11.08573ms  CUDA  11.24790ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/room_0.jpg'  (730x530, 3 channels)
+2 objects detected
+
+detected obj 0  class #65 (bed)  confidence=0.825684
+bounding box 0  (315.10, 122.41)  (729.00, 529.00)  w=413.90  h=406.59
+
+detected obj 1  class #62 (chair)  confidence=0.977051
+bounding box 1  (64.52, 190.99)  (285.69, 425.45)  w=221.17  h=234.46
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/86.jpg'  (730x530, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05584ms  CUDA   0.11818ms
+[TRT]    Network       CPU  11.14125ms  CUDA  10.47798ms
+[TRT]    Post-Process  CPU   0.01910ms  CUDA   0.01971ms
+[TRT]    Visualize     CPU   0.06615ms  CUDA   0.41686ms
+[TRT]    Total         CPU  11.28234ms  CUDA  11.03274ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/room_1.jpg'  (730x530, 3 channels)
+1 objects detected
+
+detected obj 0  class #63 (couch)  confidence=0.948730
+bounding box 0  (27.09, 100.67)  (564.61, 511.11)  w=537.52  h=410.44
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/87.jpg'  (730x530, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05373ms  CUDA   0.12070ms
+[TRT]    Network       CPU  11.14353ms  CUDA  10.47062ms
+[TRT]    Post-Process  CPU   0.01363ms  CUDA   0.01446ms
+[TRT]    Visualize     CPU   0.05808ms  CUDA   0.40998ms
+[TRT]    Total         CPU  11.26897ms  CUDA  11.01578ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/room_2.jpg'  (730x530, 3 channels)
+3 objects detected
+
+detected obj 0  class #62 (chair)  confidence=0.696777
+bounding box 0  (52.22, 173.26)  (446.98, 521.20)  w=394.76  h=347.94
+
+detected obj 1  class #63 (couch)  confidence=0.767090
+bounding box 1  (53.47, 171.32)  (439.50, 521.20)  w=386.03  h=349.88
+
+detected obj 2  class #62 (chair)  confidence=0.581543
+bounding box 2  (162.54, 121.82)  (327.93, 229.55)  w=165.39  h=107.72
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/88.jpg'  (730x530, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04816ms  CUDA   0.11965ms
+[TRT]    Network       CPU  11.04567ms  CUDA  10.38422ms
+[TRT]    Post-Process  CPU   0.01738ms  CUDA   0.01789ms
+[TRT]    Visualize     CPU   0.07152ms  CUDA   0.57354ms
+[TRT]    Total         CPU  11.18273ms  CUDA  11.09530ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/room_3.jpg'  (730x530, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/89.jpg'  (730x530, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05258ms  CUDA   0.12515ms
+[TRT]    Network       CPU  11.11265ms  CUDA  10.43888ms
+[TRT]    Post-Process  CPU   0.01101ms  CUDA   0.01146ms
+[TRT]    Visualize     CPU   0.07152ms  CUDA   0.57354ms
+[TRT]    Total         CPU  11.24775ms  CUDA  11.14902ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/room_4.jpg'  (730x530, 3 channels)
+5 objects detected
+
+detected obj 0  class #67 (dining table)  confidence=0.903320
+bounding box 0  (260.21, 214.02)  (723.58, 511.11)  w=463.38  h=297.09
+
+detected obj 1  class #62 (chair)  confidence=0.624512
+bounding box 1  (2.23, 153.46)  (244.52, 523.53)  w=242.29  h=370.07
+
+detected obj 2  class #62 (chair)  confidence=0.784180
+bounding box 2  (128.14, 132.89)  (291.39, 443.56)  w=163.25  h=310.68
+
+detected obj 3  class #73 (laptop)  confidence=0.803223
+bounding box 3  (296.03, 133.28)  (486.90, 265.00)  w=190.88  h=131.72
+
+detected obj 4  class #64 (potted plant)  confidence=0.605957
+bounding box 4  (512.57, 85.14)  (640.89, 208.58)  w=128.32  h=123.44
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/90.jpg'  (730x530, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04810ms  CUDA   0.11882ms
+[TRT]    Network       CPU  11.12202ms  CUDA  10.44794ms
+[TRT]    Post-Process  CPU   0.02173ms  CUDA   0.02278ms
+[TRT]    Visualize     CPU   0.09619ms  CUDA   0.62166ms
+[TRT]    Total         CPU  11.28804ms  CUDA  11.21120ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/room_5.jpg'  (561x427, 3 channels)
+1 objects detected
+
+detected obj 0  class #65 (bed)  confidence=0.949707
+bounding box 0  (25.89, 104.98)  (465.13, 418.66)  w=439.24  h=313.68
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/91.jpg'  (561x427, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05882ms  CUDA   0.11718ms
+[TRT]    Network       CPU  11.16029ms  CUDA  10.49683ms
+[TRT]    Post-Process  CPU   0.01210ms  CUDA   0.01325ms
+[TRT]    Visualize     CPU   0.05322ms  CUDA   0.18624ms
+[TRT]    Total         CPU  11.28443ms  CUDA  10.81350ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/room_6.jpg'  (561x427, 3 channels)
+1 objects detected
+
+detected obj 0  class #65 (bed)  confidence=0.952148
+bounding box 0  (9.59, 140.73)  (458.83, 422.62)  w=449.24  h=281.89
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/92.jpg'  (561x427, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.03309ms  CUDA   0.11670ms
+[TRT]    Network       CPU  11.21550ms  CUDA  10.53866ms
+[TRT]    Post-Process  CPU   0.01190ms  CUDA   0.01242ms
+[TRT]    Visualize     CPU   0.04291ms  CUDA   0.17155ms
+[TRT]    Total         CPU  11.30340ms  CUDA  10.83933ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/room_7.jpg'  (730x530, 3 channels)
+3 objects detected
+
+detected obj 0  class #62 (chair)  confidence=0.825684
+bounding box 0  (39.65, 110.63)  (376.76, 519.65)  w=337.11  h=409.02
+
+detected obj 1  class #62 (chair)  confidence=0.543457
+bounding box 1  (322.23, 62.11)  (511.86, 421.31)  w=189.63  h=359.20
+
+detected obj 2  class #62 (chair)  confidence=0.832031
+bounding box 2  (405.99, 41.08)  (596.33, 257.24)  w=190.34  h=216.15
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/93.jpg'  (730x530, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.03357ms  CUDA   0.11798ms
+[TRT]    Network       CPU  11.07645ms  CUDA  10.39968ms
+[TRT]    Post-Process  CPU   0.01648ms  CUDA   0.01706ms
+[TRT]    Visualize     CPU   0.06240ms  CUDA   0.46259ms
+[TRT]    Total         CPU  11.18890ms  CUDA  10.99731ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/room_8.jpg'  (730x530, 3 channels)
+3 objects detected
+
+detected obj 0  class #65 (bed)  confidence=0.532227
+bounding box 0  (295.85, 301.75)  (484.77, 480.83)  w=188.92  h=179.08
+
+detected obj 1  class #62 (chair)  confidence=0.725098
+bounding box 1  (88.22, 215.18)  (180.54, 396.46)  w=92.32  h=181.28
+
+detected obj 2  class #62 (chair)  confidence=0.510254
+bounding box 2  (214.76, 194.87)  (290.68, 273.28)  w=75.92  h=78.41
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/94.jpg'  (730x530, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.03763ms  CUDA   0.11776ms
+[TRT]    Network       CPU  11.08442ms  CUDA  10.41232ms
+[TRT]    Post-Process  CPU   0.01623ms  CUDA   0.01683ms
+[TRT]    Visualize     CPU   0.06749ms  CUDA   0.15952ms
+[TRT]    Total         CPU  11.20577ms  CUDA  10.70643ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/snow.jpg'  (942x1280, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/95.jpg'  (942x1280, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.06099ms  CUDA   0.13168ms
+[TRT]    Network       CPU  10.97856ms  CUDA  10.31510ms
+[TRT]    Post-Process  CPU   0.01021ms  CUDA   0.01056ms
+[TRT]    Visualize     CPU   0.06749ms  CUDA   0.15952ms
+[TRT]    Total         CPU  11.11725ms  CUDA  10.61686ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/stingray.jpg'  (700x394, 3 channels)
+1 objects detected
+
+detected obj 0  class #22 (elephant)  confidence=0.916016
+bounding box 0  (20.34, 44.44)  (613.18, 301.27)  w=592.85  h=256.83
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/96.jpg'  (700x394, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05475ms  CUDA   0.12051ms
+[TRT]    Network       CPU  11.05661ms  CUDA  10.40154ms
+[TRT]    Post-Process  CPU   0.01290ms  CUDA   0.01293ms
+[TRT]    Visualize     CPU   0.05824ms  CUDA   0.20125ms
+[TRT]    Total         CPU  11.18250ms  CUDA  10.73622ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/strawberry_0.jpg'  (1024x678, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/97.jpg'  (1024x678, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05642ms  CUDA   0.12838ms
+[TRT]    Network       CPU  10.99111ms  CUDA  10.32554ms
+[TRT]    Post-Process  CPU   0.00950ms  CUDA   0.00944ms
+[TRT]    Visualize     CPU   0.05824ms  CUDA   0.20125ms
+[TRT]    Total         CPU  11.11527ms  CUDA  10.66461ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/strawberry_1.jpg'  (1024x819, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/98.jpg'  (1024x819, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05680ms  CUDA   0.13034ms
+[TRT]    Network       CPU  11.02973ms  CUDA  10.35613ms
+[TRT]    Post-Process  CPU   0.00979ms  CUDA   0.00995ms
+[TRT]    Visualize     CPU   0.05824ms  CUDA   0.20125ms
+[TRT]    Total         CPU  11.15457ms  CUDA  10.69766ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/trail_0.jpg'  (869x479, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/99.jpg'  (869x479, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.05475ms  CUDA   0.12410ms
+[TRT]    Network       CPU  11.00797ms  CUDA  10.33683ms
+[TRT]    Post-Process  CPU   0.01069ms  CUDA   0.01142ms
+[TRT]    Visualize     CPU   0.05824ms  CUDA   0.20125ms
+[TRT]    Total         CPU  11.13165ms  CUDA  10.67360ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/trail_1.jpg'  (865x489, 3 channels)
+1 objects detected
+
+detected obj 0  class #17 (cat)  confidence=0.528320
+bounding box 0  (8.45, 8.24)  (857.40, 483.75)  w=848.95  h=475.51
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/100.jpg'  (865x489, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04231ms  CUDA   0.12390ms
+[TRT]    Network       CPU  11.11972ms  CUDA  10.43555ms
+[TRT]    Post-Process  CPU   0.01258ms  CUDA   0.01296ms
+[TRT]    Visualize     CPU   0.05651ms  CUDA   0.62614ms
+[TRT]    Total         CPU  11.23111ms  CUDA  11.19856ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/trail_2.jpg'  (886x497, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/101.jpg'  (886x497, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04896ms  CUDA   0.12355ms
+[TRT]    Network       CPU  11.11114ms  CUDA  10.43446ms
+[TRT]    Post-Process  CPU   0.00976ms  CUDA   0.01005ms
+[TRT]    Visualize     CPU   0.05651ms  CUDA   0.62614ms
+[TRT]    Total         CPU  11.22638ms  CUDA  11.19421ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/trail_3.jpg'  (907x464, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/102.jpg'  (907x464, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04583ms  CUDA   0.12458ms
+[TRT]    Network       CPU  10.95078ms  CUDA  10.26960ms
+[TRT]    Post-Process  CPU   0.01015ms  CUDA   0.01043ms
+[TRT]    Visualize     CPU   0.05651ms  CUDA   0.62614ms
+[TRT]    Total         CPU  11.06327ms  CUDA  11.03075ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/trail_4.jpg'  (861x479, 3 channels)
+1 objects detected
+
+detected obj 0  class #23 (bear)  confidence=0.599609
+bounding box 0  (0.00, 2.10)  (860.00, 337.97)  w=860.00  h=335.86
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/103.jpg'  (861x479, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04419ms  CUDA   0.12499ms
+[TRT]    Network       CPU  10.98730ms  CUDA  10.31174ms
+[TRT]    Post-Process  CPU   0.01277ms  CUDA   0.01283ms
+[TRT]    Visualize     CPU   0.05837ms  CUDA   0.54794ms
+[TRT]    Total         CPU  11.10263ms  CUDA  10.99750ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/trail_5.jpg'  (894x479, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/104.jpg'  (894x479, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04279ms  CUDA   0.12413ms
+[TRT]    Network       CPU  10.89782ms  CUDA  10.21978ms
+[TRT]    Post-Process  CPU   0.01005ms  CUDA   0.01014ms
+[TRT]    Visualize     CPU   0.05837ms  CUDA   0.54794ms
+[TRT]    Total         CPU  11.00902ms  CUDA  10.90199ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/trail_6.jpg'  (881x478, 3 channels)
+1 objects detected
+
+detected obj 0  class #17 (cat)  confidence=0.749023
+bounding box 0  (4.52, 6.07)  (748.51, 413.58)  w=743.99  h=407.51
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/105.jpg'  (881x478, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04448ms  CUDA   0.12400ms
+[TRT]    Network       CPU  10.98518ms  CUDA  10.31024ms
+[TRT]    Post-Process  CPU   0.01341ms  CUDA   0.01405ms
+[TRT]    Visualize     CPU   0.05763ms  CUDA   0.39152ms
+[TRT]    Total         CPU  11.10071ms  CUDA  10.83981ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/trail_7.jpg'  (863x491, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/106.jpg'  (863x491, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04541ms  CUDA   0.12403ms
+[TRT]    Network       CPU  11.02250ms  CUDA  10.34285ms
+[TRT]    Post-Process  CPU   0.00950ms  CUDA   0.01024ms
+[TRT]    Visualize     CPU   0.05763ms  CUDA   0.39152ms
+[TRT]    Total         CPU  11.13505ms  CUDA  10.86864ms
+[TRT]    ------------------------------------------------
+
+[image]  loaded '/workspace/Object-Detection-Segmentation/assets/nvidia_samples/images/trail_8.jpg'  (879x475, 3 channels)
+[image]  saved '/workspace/Object-Detection-Segmentation/results/nvidia_samples/detection/107.jpg'  (879x475, 3 channels)
+
+[TRT]    ------------------------------------------------
+[TRT]    Timing Report /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[TRT]    ------------------------------------------------
+[TRT]    Pre-Process   CPU   0.04403ms  CUDA   0.12646ms
+[TRT]    Network       CPU  10.98832ms  CUDA  10.30406ms
+[TRT]    Post-Process  CPU   0.00992ms  CUDA   0.01040ms
+[TRT]    Visualize     CPU   0.05763ms  CUDA   0.39152ms
+[TRT]    Total         CPU  11.09991ms  CUDA  10.83245ms
+[TRT]    ------------------------------------------------
+
+[0;33m[image]  imageLoader -- End of Stream (EOS) has been reached, stream has been closed
+[0mdetectnet:  shutting down...
+detectnet:  shutdown complete.
+double free or corruption (out)
