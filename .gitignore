@@ -6,7 +6,6 @@ __pycache__/
 *.mp4
 *.avi
 *.mkv
-results/
 .env
 .venv/
 assets/
