@@ -1,0 +1,7 @@
+task,precision,log_file,exists,throughput_qps,latency_avg_ms,latency_median_ms,gpu_compute_time_avg_ms
+detection,fp32,logs/trtexec_detection_fp32.log,yes,142.372,7.5575,7.52246,7.01924
+detection,fp16,logs/trtexec_detection_fp16.log,yes,258.577,4.36951,4.36914,3.86416
+detection,int8,logs/trtexec_detection_int8.log,yes,301.238,3.71096,3.71094,3.31642
+segmentation,fp32,logs/trtexec_segmentation_fp32.log,yes,118.134,9.2454,9.24316,8.4598
+segmentation,fp16,logs/trtexec_segmentation_fp16.log,yes,225.137,5.14116,5.13965,4.43822
+segmentation,int8,logs/trtexec_segmentation_int8.log,no,,,,
