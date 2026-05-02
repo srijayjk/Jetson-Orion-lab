@@ -120,3 +120,9 @@
 [04/26/2026-20:28:43] [I] FP32 and INT8 precisions have been specified - more performance might be enabled by additionally specifying --fp16 or --best
 [04/26/2026-20:28:43] [W] [TRT] Calibrator is not being used. Users must provide dynamic range for all tensors that are not Int32 or Bool.
 [04/26/2026-20:28:43] [I] [TRT] Local timing cache in use. Profiling results in this builder pass will not be stored.
+[04/26/2026-20:32:59] [E] Error[10]: IBuilder::buildSerializedNetwork: Error Code 10: Internal Error (Could not find any implementation for node /model.22/proto/cv3/conv/Conv + PWN(PWN(/model.22/proto/cv3/act/Sigmoid), PWN(/model.22/proto/cv3/act/Mul)).)
+[04/26/2026-20:32:59] [E] Engine could not be created from network
+[04/26/2026-20:32:59] [E] Building engine failed
+[04/26/2026-20:32:59] [E] Failed to create engine from model or file.
+[04/26/2026-20:32:59] [E] Engine set up failed
+&&&& FAILED TensorRT.trtexec [TensorRT v100300] # trtexec --onnx=models/segmentation/yolov8n-seg.onnx --saveEngine=engines/int8/yolov8n_seg_int8.engine --int8 --memPoolSize=workspace:2048 --skipInference
